@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import DateNavBar from './NavBar/DateNavBar';
+import { useState } from 'react';
+import NewTaskList from './TaskList/NewTaskList';
+import CurrentTaskList from './TaskList/CurrentTaskList'
 
 function App() {
+  const [currentTaskList, setCurrentTaskList] = useState([])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <DateNavBar/>
+      <NewTaskList currentTaskList={currentTaskList} setCurrentTaskList={setCurrentTaskList}/>
+      <CurrentTaskList currentTaskList={currentTaskList} />
     </div>
   );
 }
